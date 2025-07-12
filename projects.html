@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZyCodiva | Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: slideInDown 1s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .device-message {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      border: 1px solid #ff6ec4;
+      color: #ff6ec4;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #111;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff6ec4;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      text-align: center;
+      animation: fadeInUp 1s ease-in;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .projects {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ZyCodiva Projects</h1>
+    <p>Showcasing our web development expertise</p>
+    <div id="deviceMessage" class="device-message">Detecting device...</div>
+  </header>
+<nav>
+  <div class="logo">ZyCodiva</div>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="booking.html">Request a Project</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="team.html">Our Team</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+  </ul>
+</nav>
+
+
+  <section>
+    <h2>Recent Projects</h2>
+    <div class="projects">
+      <div class="card"><h3>Portfolio Site</h3><p>Modern portfolio for a designer.</p></div>
+      <div class="card"><h3>Startup Landing</h3><p>Landing page for SaaS product.</p></div>
+      <div class="card"><h3>eCommerce Store</h3><p>Optimized online store.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ZyCodiva. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function detectDevice() {
+      const width = window.innerWidth;
+      const deviceMessage = document.getElementById('deviceMessage');
+
+      if (width >= 1025) {
+        deviceMessage.innerText = "🖥️ Desktop View Activated";
+      } else if (width >= 768 && width <= 1024) {
+        deviceMessage.innerText = "📱 Tablet View Activated";
+      } else {
+        deviceMessage.innerText = "📱 Mobile View Activated";
+      }
+    }
+
+    detectDevice();
+    window.onresize = detectDevice;
+  </script>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    // Toggle icon to "X"
+    if (navLinks.classList.contains('active')) {
+      menuToggle.innerHTML = '&times;';
+    } else {
+      menuToggle.innerHTML = '&#9776;';
+    }
+  });
+</script>
+
+</body>
+</html>

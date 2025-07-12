@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZyCodiva | Testimonials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      color: #cbe6ec;
+      background-image: url('https://images.unsplash.com/photo-1581091870622-1b61d139ef9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background-color: rgba(52, 1, 47, 0.6);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #110808;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #46d9b4;
+    }
+
+    .device-message {
+      text-align: center;
+      margin-top: 10px;
+      padding: 8px 20px;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      display: inline-block;
+      font-size: 0.9em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: rgba(107, 38, 99, 0.7);
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: #d3db93;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: rgba(255,255,255,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #ddd;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ZyCodiva</h1>
+    <p>Turning Code Into Stunning Websites</p>
+    <div id="deviceMessage" class="device-message">Detecting device...</div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="booking.html">Request a Project</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="team.html">Our Team</a>
+    <a href="testimonials.html">Testimonials</a>
+  </nav>
+
+  <section>
+    <h2>What Clients Say</h2>
+    <div class="card"><p>"ZyCodiva transformed our digital presence! Highly recommended." - Rahul M.</p></div>
+    <div class="card"><p>"Excellent design sense and timely delivery." - Sneha K.</p></div>
+    <div class="card"><p>"Absolutely professional and creative team. Our website looks stunning!" - Aditi P.</p></div>
+    <div class="card"><p>"Very responsive and delivers high-quality work. Would work with them again." - Karan S.</p></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ZyCodiva. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function detectDevice() {
+      const width = window.innerWidth;
+      const deviceMessage = document.getElementById('deviceMessage');
+
+      if (width >= 1025) {
+        deviceMessage.innerText = "🖥️ Desktop View Activated";
+      } else if (width >= 768 && width <= 1024) {
+        deviceMessage.innerText = "📱 Tablet View Activated";
+      } else {
+        deviceMessage.innerText = "📱 Mobile View Activated";
+      }
+    }
+
+    // Run on load and on window resize
+    detectDevice();
+    window.onresize = detectDevice;
+  </script>
+</body>
+</html>

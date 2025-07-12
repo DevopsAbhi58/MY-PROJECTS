@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZyCodiva | Request a Project</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Lottie Animation -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      background-image: url('https://www.transparenttextures.com/patterns/circles.png');
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #cfcfcf;
+    }
+
+    .device-message {
+      text-align: center;
+      margin-top: 10px;
+      padding: 8px 20px;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      display: inline-block;
+      font-size: 0.9em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    form button {
+      background: linear-gradient(90deg, #00c6ff, #0076a3);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+    }
+
+    form button:hover {
+      background: linear-gradient(90deg, #0076a3, #00c6ff);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 198, 255, 0.6);
+      color: #fff;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ZyCodiva</h1>
+    <p>Turning Code Into Stunning Websites</p>
+    <div id="deviceMessage" class="device-message">Detecting device...</div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="booking.html">Request a Project</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="team.html">Our Team</a>
+    <a href="testimonials.html">Testimonials</a>
+  </nav>
+
+  <section>
+    <div style="text-align:center; margin-bottom: 20px;">
+      <lottie-player 
+        src="https://assets7.lottiefiles.com/packages/lf20_3vbOcw.json"  
+        background="transparent"  
+        speed="1"  
+        style="width: 200px; height: 200px;"  
+        loop  
+        autoplay>
+      </lottie-player>
+    </div>
+
+    <h2>Request a Project</h2>
+    
+    <form id="bookingForm">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Email Address" required>
+      <input type="number" id="phone" name="phone" placeholder="Phone Number" required>
+      <textarea id="message" name="message" rows="5" placeholder="Describe your project..." required></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3>✅ Request Sent!</h3>
+        <p>Thank you for reaching out. We'll get back to you shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ZyCodiva. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const messageContent = document.getElementById('message').value.trim();
+
+      const phoneNumber = "919201989409"; // ✅ Your WhatsApp number with country code
+      const whatsappMessage = `Hi ${name},%0AThank you for showing interest in ZyCodiva.%0AOur team will contact you ASAP.%0A%0A📝 *Project Details:*%0A${messageContent}%0A📞 Contact: ${phone} | 📧 ${email}`;
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+      // ✅ Show Popup First
+      popup.style.display = 'flex';
+
+      // ✅ Send Email via Formspree
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone);
+      formData.append('message', messageContent);
+
+      fetch("https://formspree.io/f/xrbklajk", {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+
+          // ✅ After 2 seconds, open WhatsApp and hide popup
+          setTimeout(() => {
+            popup.style.display = 'none';
+            window.open(whatsappURL, '_blank');
+          }, 2000);
+
+        } else {
+          popup.style.display = 'none';
+          alert('Error sending form. Please try again later.');
+        }
+      }).catch(() => {
+        popup.style.display = 'none';
+        alert('There was a problem submitting your request.');
+      });
+    });
+
+    // ✅ Device Detection
+    function detectDevice() {
+      const width = window.innerWidth;
+      const deviceMessage = document.getElementById('deviceMessage');
+
+      if (width >= 1025) {
+        deviceMessage.innerText = "🖥️ Desktop View Activated";
+      } else if (width >= 768 && width <= 1024) {
+        deviceMessage.innerText = "📱 Tablet View Activated";
+      } else {
+        deviceMessage.innerText = "📱 Mobile View Activated";
+      }
+    }
+
+    detectDevice();
+    window.onresize = detectDevice;
+  </script>
+</body>
+</html>

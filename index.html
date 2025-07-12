@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZyCodiva | Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    :root {
+      --bg-color: linear-gradient(to right, #1f1c2c, #928dab);
+      --text-color: #fff;
+      --accent-color: #00fff2;
+      --nav-bg: rgba(0, 0, 0, 0.7);
+      --card-bg: rgba(20, 20, 20, 0.95);
+    }
+
+    body.light-mode {
+      --bg-color: linear-gradient(to right, #d7e1ec, #fefefe);
+      --text-color: #333;
+      --accent-color: #004d66;
+      --nav-bg: rgba(255, 255, 255, 0.8);
+      --card-bg: white;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: all 0.5s ease;
+    }
+
+    #codeBackground {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .showcase {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .zycotext {
+      position: absolute;
+      font-size: 5rem;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      animation: fadeInOut 8s infinite;
+    }
+
+    .slide-left { animation: slideLeft 8s infinite; }
+    .slide-right { animation: slideRight 8s infinite; }
+    .zoom { animation: zoomInOut 8s infinite; }
+    .rotate { animation: rotateFade 8s infinite; }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      10%, 90% { opacity: 1; }
+    }
+    @keyframes slideLeft {
+      0% { transform: translateX(100vw); opacity: 0; }
+      50% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(-100vw); opacity: 0; }
+    }
+    @keyframes slideRight {
+      0% { transform: translateX(-100vw); opacity: 0; }
+      50% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(100vw); opacity: 0; }
+    }
+    @keyframes zoomInOut {
+      0%, 100% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes rotateFade {
+      0% { transform: rotate(0deg) scale(0.5); opacity: 0; }
+      50% { transform: rotate(360deg) scale(1); opacity: 1; }
+      100% { transform: rotate(720deg) scale(0.5); opacity: 0; }
+    }
+
+    .top-banner {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .header-text h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin: 0;
+      color: var(--accent-color);
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .header-text p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #c4f4ff;
+      animation: fadeIn 2s ease-in;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: var(--nav-bg);
+      padding: 10px;
+      border-top: 1px solid var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+    }
+
+    nav a {
+      margin: 10px;
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-color);
+    }
+
+    section {
+      text-align: center;
+      margin: 60px auto;
+      max-width: 600px;
+      animation: fadeUp 2s ease-in-out;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #bbb;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: black;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .device-message {
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      background-color: var(--card-bg);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    /* Chatbot styling omitted for brevity (use your existing code if needed) */
+  </style>
+</head>
+<body>
+
+<!-- Toggle Theme -->
+<button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+
+<!-- Animated Background Text -->
+<div class="showcase" id="showcase"></div>
+
+<!-- Matrix Background -->
+<canvas id="codeBackground"></canvas>
+
+<!-- Header -->
+<div class="top-banner">
+  <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_zp1qzitm.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+  <div class="header-text">
+    <h1>ZyCodiva</h1>
+    <p>Turning Code Into Stunning Websites</p>
+  </div>
+  <div class="device-message" id="deviceMessage">Detecting device...</div>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="services.html">Services</a>
+  <a href="booking.html">Request a Project</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="team.html">Our Team</a>
+  <a href="testimonials.html">Testimonials</a>
+</nav>
+
+<!-- Main Content -->
+<section>
+  <h2>Welcome to ZyCodiva</h2>
+  <p>We help startups and businesses go digital with elegant, functional web solutions.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 ZyCodiva. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Background Matrix
+  const canvas = document.getElementById('codeBackground');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const binary = '01';
+  const fontSize = 16;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = 'rgba(0,0,0,0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00fff2';
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const text = binary[Math.floor(Math.random() * binary.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 50);
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  // Zycodiva Text Animation
+  const animations = ['slide-left', 'slide-right', 'zoom', 'rotate'];
+  const showcase = document.getElementById('showcase');
+
+  function createZycodiva() {
+    const div = document.createElement('div');
+    div.className = 'zycotext ' + animations[Math.floor(Math.random() * animations.length)];
+    div.textContent = 'Zycodiva';
+    showcase.appendChild(div);
+    setTimeout(() => showcase.removeChild(div), 8000);
+  }
+
+  createZycodiva();
+  setInterval(createZycodiva, 8000);
+
+  // Theme Toggle
+  function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+  }
+
+  // Device Detector
+  function detectDevice() {
+    const width = window.innerWidth;
+    const msg = document.getElementById('deviceMessage');
+    if (width >= 1025) msg.innerText = "🖥️ Desktop View Activated";
+    else if (width >= 768 && width <= 1024) msg.innerText = "📱 Tablet View Activated";
+    else msg.innerText = "📱 Mobile View Activated";
+  }
+
+  detectDevice();
+  window.onresize = detectDevice;
+</script>
+</body>
+</html>
